@@ -1,2 +1,10 @@
-<h1>Todos#show</h1>
-<p>Find me in app/views/todos/show.html.erb</p>
+<div class="card" style="width: 18rem;">
+  <h5 class="card-header">You got this, <%=current_user.first_name%>!</h5>
+    <div class="card-body">
+      <h5 class="card-title"><%= @todo.title %></h5>
+      <p class="card-text"><%= @todo.details %>.</p>
+      <%=link_to "Edit", edit_todo_path(@todo), class:"card-link" %>
+      <%=link_to "Back To All", todos_path, class:"card-link" %>
+    </div>
+  </div>
+</div>

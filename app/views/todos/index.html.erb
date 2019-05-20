@@ -1,3 +1,15 @@
-<h1>Welcome, <%= current_user.name %></h1>
-<p>Find me in app/views/todos/index.html.erb</p>
-<%= button_to "Log Out", destroy_user_session_path, method: :delete, class="btn btn-primary" %>
+<h1>Welcome, <%= current_user.full_name %>!</h1>
+<hr>
+<h3>Here are your current to-dos:</h3>
+<ul>
+  <% @todos.each do |todo| %>
+    <h5><li><%= link_to todo.title, todo_path(todo) %></li></h5>
+    <%= link_to "Edit To Do", edit_todo_path(todo) %> |
+    <%= link_to "Mark As Done (delete)", todo_path(todo), method: :delete %>
+    <br />
+    <br />
+  <%end%>
+</ul>
+
+<p><%= link_to "Add A To-Do", new_todo_path, class: "btn btn-success" %></p>
+<p><%= button_to "Log Out", destroy_user_session_path, method: :delete, class: "btn btn-primary" %></p>

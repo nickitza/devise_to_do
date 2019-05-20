@@ -1,2 +1,19 @@
-<h1>Todos#edit</h1>
-<p>Find me in app/views/todos/edit.html.erb</p>
+<h1>Edit To-Do</h1>
+<hr>
+<%= form_with(model:@todo, local:true) do |f| %>
+
+<div class= "form-group">
+<%= f.label :title %>
+<%= f.text_field :title, required: true, placeholder: "Title of To-Do", class:"form-control" %>
+</div>
+
+<div class= "form-group">
+<%= f.label :details %>
+<%= f.text_field :details, placeholder: "Additional To-Do Info", class:"form-control" %>
+<small id="emailHelp" class="form-text text-muted">Include any information that will help you get your to-do done here.</small>
+</div>
+
+<%= f.submit "Update Your To-Do", class:"btn btn-success" %>
+<%end%>
+<br />
+<%= link_to "Cancel", todos_path, class:"btn btn-outline-secondary"%>

@@ -1,5 +1,11 @@
-<h1>Welcome, <%= current_user.full_name %>!</h1>
-<hr>
+<div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <h1 class="display-4">Hello, <%=current_user.full_name%>!</h1>
+          <p class="lead">Welcome back! We're so happy to see you again.</p>
+          <hr class="my-4">
+        </div>
+      </div>
+
 <h3>Here are your current to-dos:</h3>
 <ul>
   <% @todos.each do |todo| %>
